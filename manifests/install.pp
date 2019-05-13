@@ -11,11 +11,11 @@ class htcondor_ce::install {
   $use_static_shadow = $::htcondor_ce::use_static_shadow
   $install_bdii      = $::htcondor_ce::install_bdii
 
-  package { ['globus-rsl', 'blahp', 'empty-ca-certs']: ensure => present, }
+  #package { ['globus-rsl', 'blahp', 'empty-ca-certs']: ensure => present, }
 
   package { ['htcondor-ce', 'htcondor-ce-client', "htcondor-ce-${lrms}"]:
     ensure  => $ce_version,
-    require => Package['condor', 'blahp', 'globus-rsl', 'empty-ca-certs'],
+    require => Package['condor'],
   }
 
   if $install_bdii {
