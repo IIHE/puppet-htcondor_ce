@@ -13,6 +13,6 @@ class htcondor_ce::auth {
   if $gsi_backend == 'argus' {
     class { '::htcondor_ce::auth::argus': }
   } else {
-    fail("This module currently doesn't support backends other than ARGUS.")
+    warning("This module currently doesn't support backends other than ARGUS.")
   }
 }
